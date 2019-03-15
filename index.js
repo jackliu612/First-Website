@@ -5,8 +5,9 @@
 
 var express = require('express')
 var app = express();
-
+//var path = require('path')
 var hbs = require('hbs');
+app.use(express.static(__dirname));
 
 // -------------- express initialization -------------- //
 // PORT SETUP - NUMBER SPECIFIC TO THIS SYSTEM
