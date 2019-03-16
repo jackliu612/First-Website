@@ -20,19 +20,18 @@ app.set('view engine', 'hbs');
 
 app.get('/', function(req, res){
     
-    var user = req.query.user;
-    console.log(5/2);
-    var foods = [
-        'tacos',
-        'spaghetti',
-        'pizza',
-        'kutfa'
-    ]
+    // var user = req.query.user;
+    // var foods = [
+    //     'tacos',
+    //     'spaghetti',
+    //     'pizza',
+    //     'kutfa'
+    // ]
     
-    var feed_dict = {
-        user : user,
-        food_list : foods
-    }
+    // var feed_dict = {
+    //     user : user,
+    //     food_list : foods
+    // }
     
     //  iterate over each element in a list => https://handlebarsjs.com/builtin_helpers.html
     res.render('index');

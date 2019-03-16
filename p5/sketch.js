@@ -1,24 +1,21 @@
-const width = 1000;
-// const height;
-// const padding;
-// const size;
+const dim = 5
+const size = 25;
+const padding = 10;
 
 function setup() {
-	console.log(width)
-	// height = 1000;
-	// padding = 20;
-	// size = 5;
 
-	let myCanvas = createCanvas(width, height);
+	let myCanvas = createCanvas(1000, 1000);
 	myCanvas.parent('canvas');
+	rectMode(RADIUS);
 }
 
 function draw() {
+	var start = (width/2)-(dim*size/2)
 	noStroke();
 	fill(22, 111, 255);
-	for(var r = 0; r < 5; r++){
-		for(var c = 0; c< 5; c++){
-
+	for(var r = 0; r < dim; r++){
+		for(var c = 0; c< dim; c++){
+			rect(100+50*r, 100+50*c , size, size);
 		}
 	}
 }
