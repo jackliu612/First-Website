@@ -4,9 +4,12 @@ const padding = 10;
 
 function setup() {
 
+	createCanvas(1000, 1000);
+	rectMode(RADIUS);
+	/*
 	let myCanvas = createCanvas(1000, 1000);
 	myCanvas.parent('canvas');
-	rectMode(RADIUS);
+	*/
 }
 
 function draw() {
