@@ -1,9 +1,15 @@
-const var width = 1000;
-const var height = 1000;
-const var padding = 20;
-const var size = 5;
+const var width;
+const var height;
+const var padding;
+const var size;
 
 function setup() {
+
+	const var width = 1000;
+	const var height = 1000;
+	const var padding = 20;
+	const var size = 5;
+
 	let myCanvas = createCanvas(width, height);
 	myCanvas.parent('canvas');
 }
