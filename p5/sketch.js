@@ -4,7 +4,8 @@ const padding = 10;
 
 function setup() {
 
-	createCanvas(1000, 1000);
+	createCanvas(windowWidth, windowHeight);
+	background(255, 0, 200);
 	rectMode(RADIUS);
 	/*
 	let myCanvas = createCanvas(1000, 1000);
