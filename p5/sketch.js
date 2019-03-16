@@ -4,7 +4,8 @@ const padding = 10;
 
 function setup() {
 
-	createCanvas(windowWidth, windowHeight);
+	var cnv = createCanvas(windowWidth, windowHeight);
+	cnv.style('display', 'block');
 	background(255, 0, 200);
 	rectMode(RADIUS);
 	/*
