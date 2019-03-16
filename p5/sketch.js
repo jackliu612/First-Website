@@ -1,14 +1,13 @@
-const width;
-const height;
-const padding;
-const size;
+const width = 1000;
+// const height;
+// const padding;
+// const size;
 
 function setup() {
-
-	width = 1000;
-	height = 1000;
-	padding = 20;
-	size = 5;
+	console.log(width)
+	// height = 1000;
+	// padding = 20;
+	// size = 5;
 
 	let myCanvas = createCanvas(width, height);
 	myCanvas.parent('canvas');
