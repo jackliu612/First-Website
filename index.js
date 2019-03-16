@@ -21,7 +21,7 @@ app.set('view engine', 'hbs');
 app.get('/', function(req, res){
     
     var user = req.query.user;
-
+    console.log(5/2);
     var foods = [
         'tacos',
         'spaghetti',

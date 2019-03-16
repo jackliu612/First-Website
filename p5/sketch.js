@@ -1,8 +1,19 @@
+const var width = 1000;
+const var height = 1000;
+const var padding = 20;
+const var size = 5;
+
 function setup() {
-  let myCanvas = createCanvas(1000, 1000);
-  myCanvas.parent('canvas');
+	let myCanvas = createCanvas(width, height);
+	myCanvas.parent('canvas');
 }
 
 function draw() {
-  ellipse(50, 50, 80, 80);
+	noStroke();
+	fill(22, 111, 255);
+	for(var r = 0; r < 5; r++){
+		for(var c = 0; c< 5; c++){
+
+		}
+	}
 }
