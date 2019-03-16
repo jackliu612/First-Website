@@ -2,14 +2,29 @@ const dim = 5
 const size = 25;
 const padding = 10;
 
+var cnv;
+
+function centerCanvas() {
+	var x = (windowWidth - width) / 2;
+	var y = (windowHeight - height) / 2;
+	cnv.position(x, y);
+}
+
 function setup() {
 
-	createCanvas(1000, 1000);
+	cnv = createCanvas(1000, 1000);
+	centerCanvas();
+	background(255, 0, 200);
+
 	rectMode(RADIUS);
 	/*
 	let myCanvas = createCanvas(1000, 1000);
 	myCanvas.parent('canvas');
 	*/
+}
+
+function windowResized() {
+  centerCanvas();
 }
 
 function draw() {
