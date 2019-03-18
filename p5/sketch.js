@@ -1,5 +1,5 @@
-const xDim = Math.floor(Math.random() * 5 +3);
-const yDim = Math.floor(Math.random() * 5 +3);
+var xDim = Math.floor(Math.random() * 4 +3);
+var yDim = Math.floor(Math.random() * 4 +3);
 const size = 50;
 const padding = 30;
 const spacer = 2*size+padding;
@@ -10,7 +10,8 @@ var grid = [yDim];
 
 function setup() {
 
-	var cnv = createCanvas(windowWidth-20, windowHeight-20);
+	var cnv = createCanvas(3*windowWidth/4, 5*windowHeight/6);
+	cnv.parent('canvas');
 	rectMode(RADIUS);
 	prev = createVector(-1,0);
 
@@ -129,4 +130,13 @@ function drawPath(r, c){
 		}
 	}
 	noStroke();
+}
+
+function reset(){
+	clear();
+	xDim = Math.floor(Math.random() * 5 +3);
+	yDim = Math.floor(Math.random() * 5 +3);
+	prev = createVector(-1,0);
+	makeGrid();
+	drawGrid();
 }
