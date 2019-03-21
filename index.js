@@ -3,11 +3,13 @@
 // -------------- load packages -------------- //
 // INITIALIZATION STUFF
 
-var express = require('express')
+var express = require('express');
 var app = express();
 //var path = require('path')
 var hbs = require('hbs');
 app.use(express.static(__dirname));
+
+var m = require( "./maps/maps.json" );
 
 // -------------- express initialization -------------- //
 // PORT SETUP - NUMBER SPECIFIC TO THIS SYSTEM
