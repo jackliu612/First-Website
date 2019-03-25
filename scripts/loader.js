@@ -1,4 +1,10 @@
+var m;
+
 function load() {
-    var m = require( "./maps/maps.json" );
-    alert(m.maps[0].map);
+    $.getJSON("./maps/maps.json", function (data){
+        m = data;
+    })/*.then(function(){
+        alert(m.maps[0].map);
+    })*/;
 }
+

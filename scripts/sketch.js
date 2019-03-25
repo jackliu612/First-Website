@@ -1,26 +1,35 @@
-var xDim = Math.floor(Math.random() * 4 +3);
-var yDim = Math.floor(Math.random() * 4 +3);
-const size = 50;
-const padding = 30;
+var xDim;
+var yDim;
+var jMap;
+
+const size = 40;
+const padding = 25;
 const spacer = 2*size+padding;
 
 var rStart;
 var cStart;
 var grid = [yDim];
 
+var score = 0;
+
+function preload(){
+    m = loadJSON('./maps/maps.json');
+    
+}
+
 function setup() {
-    load();
-	var cnv = createCanvas(3*windowWidth/4, 5*windowHeight/6);
+	var cnv = createCanvas(3*windowWidth/4, 3*windowHeight/4);
 	cnv.parent('canvas');
 	rectMode(RADIUS);
 	prev = createVector(-1,0);
 
 	//Drawing bounding box
-	// line(0,0, width, height);
-	// line(width, 0, 0, height);
-	// line(width/2, 0, width/2, height);
-	// line(0, height/2, width, height/2);
-
+// 	 line(0,0, width, height);
+// 	 line(width, 0, 0, height);
+// 	 line(width/2, 0, width/2, height);
+// 	 line(0, height/2, width, height/2);
+    
+    getNewGrid();
 	makeGrid();
 	drawGrid();
 	noStroke();
@@ -32,16 +41,30 @@ function setup() {
 
 function draw(){
 	mouseCheck();
-	if(isFilled()){
+	if(isFilled()&&!mouseIsPressed){
+	    score++;
+        document.getElementById("score").innerHTML = "Score: " + score;
 	    genNew();
+	    
 	}
+}
+
+function getNewGrid(){
+    jMap = m.maps[Math.floor(Math.random()*m.maps.length)];
+    yDim = jMap.r;
+    xDim = jMap.c;
+    console.log(jMap.map);
 }
 
 function makeGrid(){
 	for(var r = 0; r < yDim; r++){
 		grid[r] = [xDim];
 		for(var c = 0; c < xDim; c++){
-			grid[r][c] = false;
+		    if(jMap.map[jMap.c*r+c] === '*'){
+			    grid[r][c] = true;
+		    } else{
+		        grid[r][c] = false;
+		    }
 		}
 	}
 }
@@ -68,7 +91,9 @@ function drawGrid(){
 	fill(200);
 	for(var c = 0; c < xDim; c++){
 		for(var r = 0; r < yDim; r++){
-			rect(cStart+spacer*c, rStart+spacer*r , size+10, size+10);
+		    if(!grid[r][c]){
+			    rect(cStart+spacer*c, rStart+spacer*r , size+10, size+10);
+		    }
 		}
 	}
 }
@@ -102,7 +127,7 @@ function isValid(r, c){
 
 function drawPath(r, c){
 	rect(cStart+spacer*c, rStart+spacer*r , size, size);	
-	rect(cStart+spacer*(c+prev.x)/2, rStart+spacer*(r+prev.y)/2, 50, 50);	
+	rect(cStart+spacer*(c+prev.x)/2, rStart+spacer*(r+prev.y)/2, size, size);	
 
 	stroke(255);
 	strokeWeight(12);
@@ -142,20 +167,20 @@ function isFilled(){
 		        return false;
 		}
     }
-    alert("Hello! I am an alert box!!");
     return true;
 }
 
 function genNew(){
 	clear();
-	xDim = Math.floor(Math.random() * 4 +3);
-	yDim = Math.floor(Math.random() * 4 +3);
 	prev = createVector(-1,0);
+	getNewGrid();
 	makeGrid();
 	drawGrid();
 }
 
 function reset(){
+    score = 0;
+    document.getElementById("score").innerHTML = "Score: " + score;
     clear();
 	prev = createVector(-1,0);
 	makeGrid();
