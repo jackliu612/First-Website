@@ -13,7 +13,8 @@ var grid = [yDim];
 var score = 0;
 
 function preload(){
-    m = loadJSON('./maps/maps.json');
+    //m = loadJSON('./maps/maps.json');
+    m = loadJSON('./maps/pMaps.json');
     
 }
 
